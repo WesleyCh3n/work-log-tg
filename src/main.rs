@@ -42,8 +42,10 @@ async fn answer(
             .parse::<i64>()
             .expect("parse bot user failed")
     {
-        cx.answer(format!("You are not WesleyCh3n. Good bye and Good luck👋"))
-            .await?;
+        cx.answer(format!(
+            "You are not WesleyCh3n. Good bye and Good luck\u{1F44B}"
+        ))
+        .await?;
         return Ok(());
     }
     match command {
@@ -51,13 +53,15 @@ async fn answer(
         Command::CheckIn => {
             let hub = get_hub().await;
             let msg = check(&hub, "in".into()).await.unwrap();
-            cx.answer(format!("🌱 Check in successfully")).await?;
+            cx.answer(format!("\u{1F331} Check in successfully"))
+                .await?;
             cx.answer(msg).await?
         }
         Command::CheckOut => {
             let hub = get_hub().await;
             let msg = check(&hub, "out".into()).await.unwrap();
-            cx.answer(format!("🌱 Check out successfully")).await?;
+            cx.answer(format!("\u{2728} Check out successfully"))
+                .await?;
             cx.answer(msg).await?
         }
     };
