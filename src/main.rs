@@ -76,6 +76,7 @@ async fn main() {
     // Local Testing
     /* teloxide::commands_repl(bot.clone(), "work-log", answer).await; */
 
+    // Webhook
     teloxide::commands_repl_with_listener(
         bot.clone(),
         "work-log",

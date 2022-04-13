@@ -77,12 +77,11 @@ fn pretty_status(
     ws: &HashMap<&str, String>,
 ) -> String {
     let mut v: Vec<String> = Vec::new();
-    v.push(format!("📅 {: <}\n", &date));
-    v.push(format!("⏱ Time: {: <}\n", &time));
-    v.push(format!("☀️ Stat: {: <}\n", &ws["wx"]));
-    v.push(format!("🌦 Rain: {} {: <}\n", &ws["pop"], "%"));
-    v.push(format!("🌡 MaxT: {} {: <}\n", &ws["max_t"], "℃"));
-    v.push(format!("🌡 MinT: {} {: <}\n", &ws["min_t"], "℃"));
-    v.push(format!("✨ Comf: {: <}\n", &ws["ci"]));
+    v.push(format!("\u{1F4C5}: {}\n", &date));
+    v.push(format!("\u{023F0}: {}\n", &time));
+    v.push(format!("\u{02600}: {}\n", &ws["wx"]));
+    v.push(format!("\u{1F326}: {}%\n", &ws["pop"]));
+    v.push(format!("\u{1F321}: {}~{}\u{02103}\n", &ws["min_t"], &ws["max_t"]));
+    v.push(format!("\u{02728}: {}\n", &ws["ci"]));
     v.join("")
 }
